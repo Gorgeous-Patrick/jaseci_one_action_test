@@ -1,6 +1,7 @@
 [
     {
         "kit_module": "bi_enc",
+        "local_path": "encoders/bi.py",
         "actions": [
             {
                 "name": "dot_prod",
@@ -32,6 +33,7 @@
     {
         "module_name": "flair_ner",
         "kit_module": "ent_ext",
+        "local_path": "entity_extraction/entity_extraction.py",
         "actions": [
             {
                 "name": "entity_detection",
@@ -42,6 +44,7 @@
     },
     {
         "kit_module": "pdf_ext",
+        "local_path": "pdf_extractor/extractor.py",
         "actions": [
             {
                 "name": "extract_pdf",
@@ -52,6 +55,7 @@
     },
     {
         "kit_module": "cl_summer",
+        "local_path": "summarization/summarization.py",
         "actions": [
             {
                 "name": "summarize",
@@ -62,6 +66,7 @@
     },
     {
         "kit_module": "t5_sum",
+        "local_path": "t5_sum/t5_sum.py",
         "actions": [
             {
                 "name": "classify_text",
@@ -72,6 +77,7 @@
     },
     {
         "kit_module": "text_seg",
+        "local_path": "text_segmenter/text_segmenter.py",
         "actions": [
             {
                 "name": "get_segments",
@@ -82,6 +88,7 @@
     },
     {
         "kit_module": "tfm_ner",
+        "local_path": "entity_extraction_type_2/entity_extraction.py",
         "actions": [
             {
                 "name": "extract_entity",
@@ -92,6 +99,7 @@
     },
     {
         "kit_module": "use_enc",
+        "local_path": "use_enc/use_enc.py",
         "actions": [
             {
                 "name": "encode",
@@ -117,6 +125,7 @@
     },
     {
         "kit_module": "use_qa",
+        "local_path": "use_qa/use_qa.py",
         "actions": [
             {
                 "name": "question_encode",
