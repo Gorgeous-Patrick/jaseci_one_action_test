@@ -9,7 +9,7 @@
                 "iter": 100
             },
             {
-                "name": "cos_sim_score",
+                "name": "cosine_sim",
                 "param": ["[1,2,3]", "[3,2,1]"],
                 "iter": 100
             }, 

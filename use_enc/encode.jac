@@ -1,7 +1,7 @@
 walker encode {
 	can use_enc.encode;
 	root {
-		for i in range(100) {
+		for i=0 to i<100 by i+=1 {
 			use_enc.encode("Some texts here!");
 		}
 	}

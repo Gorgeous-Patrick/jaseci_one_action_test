@@ -19,7 +19,7 @@ for module in conf:
         walker_declare = f"walker {action_name} "+"{"
         can_declare = indent(1, f"can {name}.{action_name};")
         node_declare = indent(1, "root {")
-        for_opening = indent(2, f"for i in range({action_iteration}) " + "{")
+        for_opening = indent(2, f"for i=0 to i<{action_iteration} by i+=1 " + "{")
         exec_cmd = indent(3, f"{func_full_name}(" + (", ".join(action["param"]))+");")
         closing0 = "}"
         closing1 = indent(1, "}")

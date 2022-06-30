@@ -4,17 +4,20 @@ import json
 jaseci_path = "/home/patrickli/Space/jaseci/jaseci_kit/jaseci_kit/modules"
 
 def initCommand():
-    return "jsctl -f session graph create"
+    return "jsctl login http://clarity3.eecs.umich.edu:30001 --username yiping@jaseci.org --password yipingjaseci"
 
-def getRunCommand(path: str):
-    absPath = os.path.abspath(path)
-    return f"jsctl -f session walker run {absPath}"
+def getSntCommand(codePath: str):
+    abspath = os.path.abspath(codePath)
+    return f"jsctl sentinel register {abspath}"
+
+def getRunCommand(walkerName: str):
+    return f"jsctl walker run {walkerName}"
 
 def localActionPath(kit_module: str):
     return os.path.join(jaseci_path, kit_module)
 
 def getActionLoadCommand(module_path: str):
-    return f"jsctl -f session actions load local {module_path}"
+    return f"jsctl actions load local {module_path}"
 # os.system(initCommand())
 # os.system(getActionLoadCommand(localActionPath("entity_extraction/entity_extraction.py")))
 # os.system(getRunCommand("bi_enc/cos_sim_score.jac"))
@@ -32,4 +35,9 @@ for module in conf:
     actions = module["actions"]
     for action in actions:
         action_name = action["name"]
-        os.system(getRunCommand(f"{module_name}/{action_name}"))
+        cmd = getSntCommand(f"{name}/{action_name}.jac")
+        print(cmd)
+        os.system(cmd)
+        cmd = getRunCommand(f"{action_name}")
+        print(cmd)
+        os.system(cmd)
