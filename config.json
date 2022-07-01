@@ -15,7 +15,7 @@
             }, 
             {
                 "name": "infer",
-                "param": ["\"Hello\"", "\"Hello\"", "\"Hello\"", "\"Hello\""],
+                "param": ["\"Hello\"", "[\"Hello\", \"GoodBye\"]", "\"text\"", "\"text\""],
                 "iter": 100
             },
             {
