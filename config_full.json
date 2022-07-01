@@ -6,27 +6,27 @@
             {
                 "name": "dot_prod",
                 "param": ["[1,2,3]", "[3,2,1]"],
-                "iter": 3
+                "iter": 100
             },
             {
                 "name": "cosine_sim",
                 "param": ["[1,2,3]", "[3,2,1]"],
-                "iter": 3
+                "iter": 100
             }, 
             {
                 "name": "infer",
                 "param": ["[\"Hello\"]", "[\"Hello\", \"GoodBye\"]", "\"text\"", "\"text\""],
-                "iter": 3
+                "iter": 100
             },
             {
                 "name": "get_context_emb",
                 "param": ["\"HelloWorld\""],
-                "iter": 3
+                "iter": 100
             },
             {
                 "name": "get_candidate_emb",
                 "param": ["\"HelloWorld\""],
-                "iter": 3
+                "iter": 100
             } 
         ]
     },
@@ -38,7 +38,7 @@
             {
                 "name": "entity_detection",
                 "param": ["\"This is boring!\"", "[\"LOC\", \"PER\"]"],
-                "iter": 3
+                "iter": 100
             }
         ]
     },
@@ -49,7 +49,7 @@
             {
                 "name": "extract_pdf",
                 "param": ["\"http://www.africau.edu/images/default/sample.pdf\"", "true"],
-                "iter": 3
+                "iter": 100
             }
         ]
     },
@@ -60,7 +60,7 @@
             {
                 "name": "summarize",
                 "param": ["text=\"Nothing to summarize here.\"", "url=\"none\"", "sent_count=5", "summarizer_type=\"LsaSummarizer\""],
-                "iter": 3
+                "iter": 100
             }
         ]
     },
@@ -71,7 +71,7 @@
             {
                 "name": "get_segments",
                 "param": ["\"Hello, please segment this sentence.\"", "5"],
-                "iter": 3
+                "iter": 100
             }
         ]
     },
@@ -82,7 +82,7 @@
             {
                 "name": "extract_entity",
                 "param": ["\"Extract Entities!\""],
-                "iter": 3
+                "iter": 100
             }
         ]
     },
@@ -93,22 +93,22 @@
             {
                 "name": "encode",
                 "param": ["\"Some texts here!\""],
-                "iter": 3
+                "iter": 100
             },
             {
                 "name": "cos_sim_score",
                 "param": ["\"This is the first string\"", "\"This is the second string\""],
-                "iter": 3
+                "iter": 100
             },
             {
                 "name": "text_similarity",
                 "param": ["\"This is the first string\"", "\"This is the second string\""],
-                "iter": 3
+                "iter": 100
             },
             {
                 "name": "text_classify", 
                 "param": ["\"Classify this string\"", "[\"Class 1\", \"Class 2\"]"],
-                "iter": 3
+                "iter": 100
             }
         ]
     },
@@ -119,52 +119,52 @@
             {
                 "name": "question_encode",
                 "param": ["\"Who am I?\""],
-                "iter": 3
+                "iter": 100
             },
             {
                 "name": "answer_encode",
                 "param": ["\"I am Jac.\"", "\"I am not Jack\""],
-                "iter": 3
+                "iter": 100
             },
             {
                 "name": "cos_sim_score",
                 "param": ["\"I am Jac.\"", "\"I am not Jack\""],
-                "iter": 3
+                "iter": 100
             },
             {
                 "name": "dist_score",
                 "param": ["\"I am Jac.\"", "\"I am not Jack\""],
-                "iter": 3
+                "iter": 100
             },
             {
                 "name": "question_similarity",
                 "param": ["\"Am I JACK?\"", "\"Am I Jack?\""],
-                "iter": 3
+                "iter": 100
             },
             {
                 "name": "question_classify",
                 "param": ["\"classify me!\"", "[\"Class 1\", \"Class 2\"]"],
-                "iter": 3
+                "iter": 100
             },
             {
                 "name": "answer_similarity",
                 "param": ["\"Am I JACK?\"", "\"Am I Jack?\""],
-                "iter": 3
+                "iter": 100
             },
             {
                 "name": "answer_classify",
                 "param": ["\"classify me!\"", "[\"Class 1\", \"Class 2\"]"],
-                "iter": 3
+                "iter": 100
             },
             {
                 "name": "qa_similarity",
                 "param": ["\"Am I JACK?\"", "\"Am I Jack?\""],
-                "iter": 3
+                "iter": 100
             },
             {
                 "name": "qa_classify",
                 "param": ["\"classify me!\"", "[\"Class 1\", \"Class 2\"]"],
-                "iter": 3
+                "iter": 100
             }
         ]
     }

@@ -23,7 +23,7 @@ def localActionPath(kit_module: str):
 # os.system(getActionLoadCommand(localActionPath("entity_extraction/entity_extraction.py")))
 # os.system(getRunCommand("bi_enc/cos_sim_score.jac"))
 
-HOST = "http://clarity31.eecs.umich.edu:8080"
+HOST = "http://clarity3.eecs.umich.edu:30001"
 auth_header = {}
 
 def login():
@@ -74,7 +74,7 @@ def walkerRun(walkerName: str, SNT):
             headers = auth_header,
             json = req
             )
-    print(f"Walker Run: f{response.text}")
+    print(f"Walker Run ({walkerName}): f{response.text}")
 file = open("config.json", "r")
 conf = json.load(file)
 login()
@@ -82,6 +82,8 @@ login()
 for module in conf:
     name = module["kit_module"]
     module_name = module.get("module_name", name)
+    if module_name != "use_enc":
+        continue
     local_path = module["local_path"]
     abs_action_path = localActionPath(local_path)
     load_actions(abs_action_path)
