@@ -1,8 +1,8 @@
 walker encode {
-	can use_enc.encode;
+	can use.encode;
 	root {
-		for i=0 to i<3 by i+=1 {
-			use_enc.encode("Some texts here!");
+		for i=0 to i<100 by i+=1 {
+			use.encode("Some texts here!");
 		}
 	}
 }

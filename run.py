@@ -1,6 +1,8 @@
 import os
 import json
 import requests
+import time
+import csv
 
 jaseci_path = "/jaseci/jaseci_kit/jaseci_kit/modules"
 
@@ -38,13 +40,20 @@ def login():
     print(auth_header)
     return auth_header
 
+def load_module_actions(abs_path: str):
+    response = requests.post(
+        HOST + "/js_admin/actions_load_module",
+        headers=auth_header,
+        json={"mod": abs_path},
+    )
+    print(f"Load Actions (module): {response.text}")
 def load_actions(abs_path: str):
     response = requests.post(
         HOST + "/js_admin/actions_load_local",
         headers=auth_header,
         json={"file": abs_path},
     )
-    print(f"Load Actions: {response.text}")
+    print(f"Load Actions (local): {response.text}")
 
 def getSentinel(codePath: str):
     file = open(codePath, "r")
@@ -78,26 +87,39 @@ def walkerRun(walkerName: str, SNT):
 file = open("config.json", "r")
 conf = json.load(file)
 login()
+output = open("time.csv", "w")
+writer = csv.writer(output, delimiter=",")
+writer.writerow(["Module Name", "Action Name", "iteration Number", "Duration", "Local/Remote"])
 # os.system(initCommand())
 for module in conf:
     name = module["kit_module"]
     module_name = module.get("module_name", name)
-    if module_name != "use_enc":
-        continue
+    # if module_name != "use_qa":
+    #     continue
     local_path = module["local_path"]
+    load_module = module.get("load_module", False)
     abs_action_path = localActionPath(local_path)
-    load_actions(abs_action_path)
+    if load_module:
+        load_module_actions(f"jaseci_kit.{module_name}")
+    else:
+        load_actions(abs_action_path)
 #     load_action_cmd = getActionLoadCommand(abs_action_path)
 #     print(load_action_cmd)
 #     os.system(load_action_cmd)
     actions = module["actions"]
     for action in actions:
         action_name = action["name"]
+        iteration = action["iter"]
         snt = getSentinel(f"{module_name}/{action_name}.jac")
 #         cmd = getSntCommand(f"{name}/{action_name}.jac")
 #         print(cmd)
 #         os.system(cmd)
 #         cmd = getRunCommand(f"{action_name}")
+        t = time.time()
         walkerRun(action_name, snt)
+        duration = time.time() - t
+        print(duration)
+        writer.writerow([module_name, action_name, iteration, duration] + ["local"])
 #         print(cmd)
 #         os.system(cmd)
+output.close()

@@ -1,8 +1,8 @@
 walker text_similarity {
-	can use_enc.text_similarity;
+	can use.text_similarity;
 	root {
-		for i=0 to i<3 by i+=1 {
-			use_enc.text_similarity("This is the first string", "This is the second string");
+		for i=0 to i<100 by i+=1 {
+			use.text_similarity("This is the first string", "This is the second string");
 		}
 	}
 }
