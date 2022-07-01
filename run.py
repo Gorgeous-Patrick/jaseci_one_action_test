@@ -25,7 +25,7 @@ def localActionPath(kit_module: str):
 # os.system(getActionLoadCommand(localActionPath("entity_extraction/entity_extraction.py")))
 # os.system(getRunCommand("bi_enc/cos_sim_score.jac"))
 
-HOST = "http://clarity3.eecs.umich.edu:30001"
+HOST = "http://localhost:30001"
 auth_header = {}
 
 def login():
